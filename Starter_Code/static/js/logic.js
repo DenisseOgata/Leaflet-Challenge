@@ -60,7 +60,9 @@ function pointToLayer(geoJsonPoint, latlng) {
 }
 
 // Create functions and loop through the depth of the earthquake nand assign color accordingly.
-function onEachFeature(feature, layer) { }
+function onEachFeature(feature, layer) {
+    layer.bindPopup(`<h3>Location: ${feature.properties.place}</h3><hr><p>Date: ${new Date(feature.properties.time)}</p><p>Magnitude: ${feature.properties.mag}</p><p>Depth: ${feature.geometry.coordinates[2]}</p>`);
+ }
 function getColor(depth) {
     let color = "";
     switch (true) {
